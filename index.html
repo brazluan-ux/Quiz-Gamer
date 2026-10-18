@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Gamer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Tela Inicial (Menu) -->
+        <section id="menu-screen" class="screen active">
+            <h1 class="logo">Quiz Gamer</h1>
+            <p class="subtitle">Teste seus conhecimentos sobre o mundo dos videogames!</p>
+            <div class="menu-buttons">
+                <button id="btn-start" class="btn btn-primary">Iniciar Jogo</button>
+                <button id="btn-ranking" class="btn btn-secondary">Ver Ranking</button>
+            </div>
+        </section>
+
+        <!-- Tela de Jogo -->
+        <section id="game-screen" class="screen hidden">
+            <header class="game-header">
+                <div class="progress">
+                    <span id="question-progress">Pergunta 1 / 10</span>
+                </div>
+                <div class="timer">
+                    Tempo: <span id="time-left">15</span>s
+                </div>
+            </header>
+            
+            <main class="game-main">
+                <h2 id="question-text" class="question-text">Texto da pergunta?</h2>
+                <div id="options-container" class="options-grid">
+                    <!-- Gerados via JS -->
+                </div>
+            </main>
+        </section>
+
+        <!-- Tela Final (Resultado) -->
+        <section id="result-screen" class="screen hidden">
+            <h2 class="result-title">Fim de Jogo!</h2>
+            <div class="result-stats">
+                <p>Você acertou <span id="correct-answers">0</span> de <span id="total-questions">10</span> perguntas!</p>
+                <p>Pontuação Final: <strong id="final-score">0</strong></p>
+            </div>
+            
+            <form id="score-form" class="score-form">
+                <input type="text" id="player-name" placeholder="Seu nome (Máx 12)" maxlength="12" required>
+                <button type="submit" class="btn btn-primary">Salvar Pontuação</button>
+            </form>
+            
+            <div class="result-actions">
+                <button id="btn-restart" class="btn btn-secondary">Jogar Novamente</button>
+                <button id="btn-view-ranking-result" class="btn btn-secondary">Ver Ranking</button>
+            </div>
+        </section>
+
+        <!-- Tela de Ranking -->
+        <section id="ranking-screen" class="screen hidden">
+            <h2 class="ranking-title">Top Jogadores</h2>
+            <div class="table-container">
+                <table id="ranking-table">
+                    <thead>
+                        <tr>
+                            <th>Pos</th>
+                            <th>Nome</th>
+                            <th>Pontos</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ranking-body">
+                        <!-- Gerados via JS -->
+                    </tbody>
+                </table>
+            </div>
+            <button id="btn-menu-from-ranking" class="btn btn-primary btn-block">Voltar ao Menu</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
